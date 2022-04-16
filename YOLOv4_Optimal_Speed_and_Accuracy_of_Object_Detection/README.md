@@ -7,7 +7,7 @@
 - **YOLOv4의 목적**
     - 생산 시스템에서 object detector의 빠른 작동 속도와 병렬 연산을 위한 최적화.
 
-![image1](images/image1.png)
+![image1](uploads/image1.png)
 
 - **YOLOv4의 기여**
     - 1080Ti, 2080Ti를 사용하여 누구나 효과적이고 강력한 object detection model을 학습시킬 수 있다.
@@ -18,7 +18,7 @@
 
 ### 2.1 Object detection models
 
-![image2](images/image2.png)
+![image2](uploads/image2.png)
 
 - **Input:** Image, Patches, Image Pyramid
 - **Backbones:**
@@ -71,7 +71,7 @@
 
 ### 3.1 Selection of architecture
 
-![image3](images/image3.png)
+![image3](uploads/image3.png)
 
 **목적:**
 
@@ -106,19 +106,19 @@ Single GPU에서 디자인한 detector가 더 잘 학습할 수 있도록 추가
 
 - 새로운 data augmentation 기법인 Mosaic과 Self-Adversarial Training (SAT)
 
-![image4](images/image4.png)
+![image4](uploads/image4.png)
 
 - General algorithms을 적용하여 최적의 hyper-parameter를 선택
 - 기존에 존재하는 기법을 수정하여 적용: modified SAM, modified PAN, Cross mini-Batch Normalization(CmBN)
     - **CmBN:** CBN의 수정된 버전으로 single batch 내에서 mini-batches 사이에 대한 통계를 수집
         
-        ![image5](images/image5.png)
+        ![image5](uploads/image5.png)
         
     
     - **Modified SAM:** Spatial-wise attention에서 point-wise attension으로 변경
     - **Modified PAN:** Shortcut connection을 concatenation으로 교체
 
-![image6](images/image6.png)
+![image6](uploads/image6.png)
 
 ### 3.4 YOLOv4
 
@@ -147,7 +147,7 @@ Classfier training 할 때 서로 다른 feature가 미치는 영향에 대하�
 - MixUp, CutMix and Mosaic
 - different activations (Leaky-ReLU, Swish, Mish)
 
-![image7](images/image7.png)
+![image7](uploads/image7.png)
 
 결과적으로 classfier training 성능을 향상시키는 feature들은 아래와 같다
 
@@ -155,7 +155,7 @@ Classfier training 할 때 서로 다른 feature가 미치는 영향에 대하�
 - Class label smoothing
 - Mish activation
 
-![image8](images/image8.png)
+![image8](uploads/image8.png)
 
 ### 4.3 Influence of different features on Detector training
 
@@ -172,15 +172,15 @@ Classfier training 할 때 서로 다른 feature가 미치는 영향에 대하�
 - **OA:** Optimized Anchors - using the optimized anchors for training with the 512x512 network resolution
 - **GIoU, CIoU, DIoU, MSE:** using different loss algorithms for bbox regression
 
-![image9](images/image9.png)
+![image9](uploads/image9.png)
 
 BoS-detector 또한 detector training accuracy의 향상에 있어서 많은 영향을 주었으며 추가적인 연구를 진행하여 SPP, PAN, SAM을 사용하였을 때 가장 좋은 성능을 보임
 
-![image10](images/image10.png)
+![image10](uploads/image10.png)
 
 ### 4.4 Influence of different backbones and pretrained weightings on Detector training
 
-![image11](images/image11.png)
+![image11](uploads/image11.png)
 
 다른 backbone model이 detector accuracy에 미치는 영향을 보기 위하여 추가로 연구를 진행하였고, 결과는 위 표와 같으며, best classification accuracy를 갖는 모델이 항상 best detector accuracy를 갖는 것이 아님을 발견
 
@@ -191,14 +191,14 @@ BoS-detector 또한 detector training accuracy의 향상에 있어서 많은 영
 
 ### 4.5 Influence of different mini-batch size on Detector training
 
-![image12](images/image12.png)
+![image12](uploads/image12.png)
 
 - BoF와 BoS training strategy를 추가한 후, mini-batch size는 detector performance에 영향을 거의 미치지 않음
 - BoF와 BoS를 도입한 후 누구나 개인 GPU를 사용하여 완벽한 detector를 학습시킬 수 있음
 
 ## 5. Results
 
-![image13](images/image13.png)
+![image13](uploads/image13.png)
 
 - YOLOv4 모델이 speed와 accuracy 모두 다른 SOTA 모델에 비하여 뛰어난 성능을 보임
 
